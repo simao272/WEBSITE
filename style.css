@@ -1,0 +1,577 @@
+/* Layout principal com sidebar */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #151520;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar h2 {
+    color: #00ffe1;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.sidebar ul li a:hover {
+    color: #00ffe1;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #ffffff;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #00ffe1;
+    text-shadow: 0 0 10px #00ffe1;
+}
+
+#game-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.game-card {
+    background: #1e1e2f;
+    border: 2px solid #00bcd4;
+    border-radius: 12px;
+    padding: 15px;
+    width: 250px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00bcd4;
+}
+
+.game-card h2 {
+    font-size: 1.2em;
+    color: #ffdd57;
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #ff0080;
+}
+
+.note {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ffd700;
+}
+
+/* Estilo da barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e2f;
+    border: 2px solid #00ffe1;
+    border-radius: 30px;
+    padding: 8px 16px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    box-shadow: 0 0 10px rgba(0, 255, 225, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus-within {
+    box-shadow: 0 0 15px rgba(0, 255, 225, 0.8);
+}
+
+.search-icon {
+    font-size: 18px;
+    color: #00ffe1;
+    margin-right: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 5px 0;
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+/* Estilo da página de detalhes */
+#game-details {
+    background: #1e1e2f;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#game-details h2 {
+    color: #ffdd57;
+}
+
+#game-details p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.comment-box {
+    margin-top: 12px;
+}
+
+.comment-box input {
+    width: 90%;
+    padding: 7px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #292940;
+    color: #fff;
+    border: 1px solid #00ffe1;
+}
+
+.comment-box input::placeholder {
+    color: #aaa;
+}
+
+.stars {
+    margin-top: 15px;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 22px;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.star:hover,
+.star.selected {
+    color: #ffd700;
+}
+
+/* Estilo da lista de resultados de pesquisa */
+#search-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#search-results .game-card {
+    width: 250px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    background: #1e1e2f;
+    border: 2px solid #00bcd4;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+#search-results .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00bcd4;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    #game-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-card {
+        width: 90%;
+    }
+
+    /* Estilo da tela de login */
+   /* Tela de login */
+.login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+  }
+  
+  .login-box {
+    background-color: #444;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 300px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00ffe1;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #00ccad;
+  }
+  
+  /* Seção de Sugestão de Jogo */
+  .suggestion-form {
+    border: 2px solid #00ffe1; 
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    width: 85%;
+    max-width: 450px;
+    margin: 30px auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .suggestion-form h2 {
+    text-align: center;
+    color: #00ffe1;
+  }
+  
+  .suggestion-form input,
+  .suggestion-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #444;
+    color: #fff;
+  }
+  
+  .suggestion-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00ffe1;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .suggestion-form button:hover {
+    background-color: #00ccad;
+  }
+  
+  /* Container principal */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 20%;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 15px 0;
+  }
+  
+  .sidebar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .sidebar a:hover {
+    color: #00ffe1;
+  }
+  
+  /* Conteúdo principal */
+  .main-content {
+    width: 75%;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+  }
+  
+  .game-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .game-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .game-card h2 {
+    color: #00ffe1;
+  }
+  
+  .note {
+    color: #ccc;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Tela de login */
+  .login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+  }
+  
+  .login-box {
+    background-color: #444;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 300px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #2e2e2e;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid #00ffe1;
+    box-shadow: 0 0 5px rgba(0, 255, 225, 0.7);
+  }
+  
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: #00ffe1;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #00ccad;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Seção de Sugestão de Jogo */
+  .suggestion-form {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  .suggestion-form h2 {
+    text-align: center;
+    color: #00ffe1;
+    margin-bottom: 20px;
+  }
+  
+  /* Caixa de texto - Inputs e Textarea */
+  .form-input {
+    font-size: 14px;
+    padding: 14px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #2e2e2e;
+    color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: #00ffe1;
+    box-shadow: 0 0 5px rgba(0, 255, 225, 0.7);
+  }
+  
+  /* Botão de envio */
+  .form-button {
+    font-size: 16px;
+    padding: 14px;
+    background-color: #00ffe1;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #00ccad;
+  }
+  
+  .form-button:focus {
+    outline: none;
+  }
+  
+  /* Contêiner do site */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 20%;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 15px 0;
+  }
+  
+  .sidebar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .sidebar a:hover {
+    color: #00ffe1;
+  }
+  
+  /* Conteúdo principal */
+  .main-content {
+    width: 75%;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+  }
+  
+  /* Cartões de jogos */
+  .game-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .game-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .game-card h2 {
+    color: #00ffe1;
+  }
+  
+  .note {
+    color: #ccc;
+  }
+  
+}
