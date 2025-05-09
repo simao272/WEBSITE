@@ -8,7 +8,7 @@ const users = [
 let games = [
     {
         id: 1,
-        name: "Apex Legends SUCK",
+        name: "Apex Legends Good",
         img: "Imagens/apex_imagem.png",
         description: "Apex Legends é um jogo de tiro battle royale onde equipes de lendas competem para ser a última sobrevivente."
     },
