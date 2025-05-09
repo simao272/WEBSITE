@@ -8,25 +8,25 @@ const users = [
 let games = [
     {
         id: 1,
-        name: "Apex Legends",
+        name: "Apex Legends SUCK",
         img: "Imagens/apex_imagem.png",
         description: "Apex Legends é um jogo de tiro battle royale onde equipes de lendas competem para ser a última sobrevivente."
     },
     {
         id: 2,
-        name: "CS:GO",
+        name: "CS:GO SUCKS",
         img: "Imagens/cs_imagem.png",
         description: "Counter-Strike: Global Offensive é um jogo de tiro tático em equipe onde terroristas e contra-terroristas lutam em missões."
     },
     {
         id: 3,
-        name: "Rocket League",
+        name: "Rocket League SUCKS",
         img: "Imagens/rocket_imagem.png",
         description: "Rocket League combina futebol com carros controlados por jogadores em arenas tridimensionais."
     },
     {
         id: 4,
-        name: "League of Legends",
+        name: "League of Legends ROCKS",
         img: "Imagens/league_imagem.png",
         description: "League of Legends é um MOBA onde equipes de campeões lutam para destruir a base adversária."
     }
