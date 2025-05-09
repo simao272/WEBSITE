@@ -26,7 +26,7 @@ let games = [
     },
     {
         id: 4,
-        name: "League of Legends ROCKS",
+        name: "League of Legends TRASH",
         img: "Imagens/league_imagem.png",
         description: "League of Legends é um MOBA onde equipes de campeões lutam para destruir a base adversária."
     }
