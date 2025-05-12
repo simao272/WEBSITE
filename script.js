@@ -34,31 +34,36 @@ let games = [
 
 // Função de login
 function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-  const formData = new FormData();
-  formData.append("username", username);
-  formData.append("password", password);
-
-  fetch("php/login.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      alert("Login bem-sucedido!");
-      // redirecionar conforme o papel
-      if (data.role === "admin") {
-        window.location.href = "index.html";
-      } else {
-        window.location.href = "index.html";
-      }
-    } else {
-      alert("Credenciais inválidas");
-    }
-  });
+    fetch("php/login.php", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            localStorage.setItem("userRole", data.role);
+            alert("Login bem-sucedido!");
+            document.getElementById("login-screen").style.display = "none";
+            document.querySelector(".container").style.display = "flex";
+            
+            if (data.role === "admin") {
+                document.getElementById("menu-sugestoes").style.display = "block";
+            }
+            loadGames();
+        } else {
+            alert("Credenciais inválidas");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Erro ao fazer login");
+    });
 }
 
 function logout() {
