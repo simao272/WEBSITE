@@ -1,1 +1,93 @@
-<h1>Criar_Conta</h1>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Conta - Galeria de Jogos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<form action="php/register.php" method="POST" id="register-form"
+style="
+    background-color:#1e1e2f; 
+    border: 2px solid #00ffe1; 
+    padding: 10px; 
+    border-radius: 12px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    width: 40%;
+    max-width: 40%;
+    margin: 15% auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;"
+>
+  <h2>Criar Conta</h2>
+  <input style="
+          background-color:#1e1e2f; 
+          border: 2px solid #00ffe1; 
+          padding: 10px; 
+          border-radius: 12px; 
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+          width: 50%;
+          max-width: 30%;
+          font-family: Arial, sans-serif;
+          text-align: center;
+          color: white;"
+  name="username" type="text" placeholder="Utilizador" required><br><br>
+
+  <input style="
+          background-color:#1e1e2f; 
+          border: 2px solid #00ffe1; 
+          padding: 10px; 
+          border-radius: 12px; 
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+          width: 50%;
+          max-width: 30%;
+          font-family: Arial, sans-serif;
+          text-align: center;
+          color: white;"
+  name="password" type="password" placeholder="Palavra-Passe" required><br><br>
+
+  <button style="
+            background-color:#1e1e2f; 
+            border: 2px solid #00ffe1; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            width: 50%;
+            max-width: 30%;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.997);"
+  type="submit">Criar Conta</button>
+
+  <p class="login-link">
+          Já tem uma conta? <a href="index.html">Fazer login</a>
+  </p>
+  
+</form>
+
+<script>
+document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    
+    fetch(this.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(text => {
+        alert(text);
+        if (text.includes("sucesso")) {
+            window.location.href = "index.html";
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Erro ao criar conta");
+    });
+});
+</script>
+</body>
+</html>

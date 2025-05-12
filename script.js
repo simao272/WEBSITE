@@ -5,28 +5,29 @@ const users = [
 ];
 
 // Lista de jogos
+// Lista de jogos
 let games = [
     {
         id: 1,
-        name: "Apex Legends Good",
+        name: "Apex Legends",
         img: "Imagens/apex_imagem.png",
         description: "Apex Legends é um jogo de tiro battle royale onde equipes de lendas competem para ser a última sobrevivente."
     },
     {
         id: 2,
-        name: "CS:GO SUCKS",
+        name: "CS:GO",
         img: "Imagens/cs_imagem.png",
         description: "Counter-Strike: Global Offensive é um jogo de tiro tático em equipe onde terroristas e contra-terroristas lutam em missões."
     },
     {
         id: 3,
-        name: "Rocket League SUCKS",
+        name: "Rocket League",
         img: "Imagens/rocket_imagem.png",
         description: "Rocket League combina futebol com carros controlados por jogadores em arenas tridimensionais."
     },
     {
         id: 4,
-        name: "League of Legends TRASH",
+        name: "League of Legends",
         img: "Imagens/league_imagem.png",
         description: "League of Legends é um MOBA onde equipes de campeões lutam para destruir a base adversária."
     }
@@ -36,30 +37,40 @@ let games = [
 function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [
-        { username: "admin", password: "1234", role: "admin" },
-        { username: "user", password: "1234", role: "user" }
-    ];
 
-    const user = storedUsers.find(u => u.username === username && u.password === password);
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
 
-    if (user) {
-        localStorage.setItem("userRole", user.role);
-        document.getElementById("login-screen").style.display = "none";
-        document.querySelector(".container").style.display = "flex";
-        if (user.role === "admin") {
-            document.getElementById("menu-sugestoes").style.display = "block";
+    fetch("php/login.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            localStorage.setItem("userRole", data.role);
+            alert("Login bem-sucedido!");
+            document.getElementById("login-screen").style.display = "none";
+            document.querySelector(".container").style.display = "flex";
+            
+            if (data.role === "admin") {
+                document.getElementById("menu-sugestoes").style.display = "block";
+            }
+            loadGames();
+        } else {
+            alert(data.message || "Credenciais inválidas");
         }
-        loadGames();
-    } else {
-        alert("Usuário ou senha inválidos");
-    }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Erro ao fazer login");
+    });
 }
 
 function logout() {
     localStorage.removeItem("userRole");
-    location.reload();
+    window.location.href = "index.html";
 }
 
 // Média de avaliações
@@ -386,8 +397,8 @@ function register() {
     }
 
     const users = JSON.parse(localStorage.getItem("users")) || [
-        { username: "admin", password: "1234", role: "admin" },
-        { username: "user", password: "1234", role: "user" }
+        { username: "admin", password: "1234"},
+        { username: "user", password: "1234"}
     ];
 
     if (users.find(u => u.username === username)) {
