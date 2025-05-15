@@ -9,8 +9,80 @@
 <body>
 
   <div id="login-screen" class="login-screen">
-    <div class="login-box"><br><br><br><br><br><br>
-      <h2 style="color:#ffd700; text-align: center;">Login</h2><br><br>
+    <div class="login-box"><br><br><br><br><br>
+
+      <form style="
+            background-color:#1e1e2f; 
+            border: 2px solid #00ffe1; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            width: 40%;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.997);
+            text-align: center;
+            margin: 15% auto;
+            margin-top: auto;">
+
+      <h2 style="color:#ffd700; text-align: center;">Login</h2>
+
+      <input style="
+                background-color:#1e1e2f; 
+                border: 2px solid #00ffe1; 
+                padding: 10px; 
+                border-radius: 12px; 
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+                width: 50%;
+                max-width: 50%;
+                margin: auto;
+                font-family: 'Arial', sans-serif;
+                text-align: center;
+                color: white;" 
+      type="text" id="username" placeholder="Utilizador"><br><br>
+
+      <input style="
+                background-color:#1e1e2f; 
+                border: 2px solid #00ffe1; 
+                padding: 10px; 
+                border-radius: 12px; 
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+                width: 50%;
+                max-width: 50%;
+                margin: auto;
+                font-family: 'Arial', sans-serif;
+                text-align: center;
+                color: white;" 
+      type="password" id="password" placeholder="Palavra-Passe" /><br><br>
+
+      <button style="
+                color:#FFF;
+                background-color:#1e1e2f; 
+                border: 2px solid #00ffe1; 
+                padding: 15px; 
+                border-radius: 12px; 
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+                width: 20%;
+                max-width: 80%;
+                margin: auto;
+                font-family: 'Arial', sans-serif;
+                text-align: center;" 
+      onclick="login()">Entrar</button><br><br>
+    
+
+    <p style="text-align: center; color: grey;">
+      Não tem conta? <a style="color: grey;" href="Criar_Conta.html" onclick="showRegisterForm()">Criar conta</a>
+    </p>
+  </div></div>
+</form>       
+
+
+
+
+  <!-- Formulário de Registro -->
+  <div id="register-screen" class="login-screen" style="display: none;">
+    <div class="login-box"><br><br><br><br>
+      <h2 style="color:#ffd700; text-align: center;">Criar Conta</h2><br>
       <input 
       style="
       background-color:#1e1e2f; 
@@ -23,7 +95,7 @@
       margin-left: 34%;
       font-family: 'Arial', sans-serif;
       text-align: center;" 
-      type="text" id="username" placeholder="Usuário"><br><br>
+      type="text" id="register-username" placeholder="Escolha um usuário">
       <input
       style="
       background-color:#1e1e2f; 
@@ -36,7 +108,20 @@
       margin-left: 34%;
       font-family: 'Arial', sans-serif;
       text-align: center;" 
-      type="password" id="password" placeholder="Senha" /><br><br>
+      type="password" id="register-password" placeholder="Escolha uma senha" /><br><br>
+      <input
+      style="
+      background-color:#1e1e2f; 
+      border: 2px solid #00ffe1; 
+      padding: 10px; 
+      border-radius: 12px; 
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      width: 50%;
+      max-width: 30%;
+      margin-left: 34%;
+      font-family: 'Arial', sans-serif;
+      text-align: center;" 
+      type="password" id="confirm-password" placeholder="Confirme a senha" /><br><br>
       <button
       style="
     color:#FFF;
@@ -49,13 +134,13 @@
     max-width: 80%;
     margin-left: 40%;
     font-family: 'Arial', sans-serif;" 
-      onclick="login()">Entrar</button><br><br>
+      onclick="register()">Registrar</button><br><br>
     </div>
 
     <p style="text-align: center; color: grey;">
-      Não tem conta? <a style="color: grey;" href="Criar_Conta.html">Criar conta</a>
+      Já tem conta? <a style="color: grey;" href="#" onclick="showLoginForm()">Fazer login</a>
     </p>
-  </div>  
+  </div>
 
   <!-- Conteúdo do site -->
   <div class="container" style="display: none;">
